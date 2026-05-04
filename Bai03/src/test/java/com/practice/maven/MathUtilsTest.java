@@ -27,16 +27,33 @@ public class MathUtilsTest {
         assertEquals("Không thể chia cho 0", exception.getMessage());
     }
 
+    /*
+     * @Test
+     * public void testFilePath() {
+     * // Cố tình dùng dấu gạch chéo ngược của Windows (\)
+     * String expectedPath = "data\\temp\\file.txt";
+     * String actualPath = "data" + java.io.File.separator + "temp" +
+     * java.io.File.separator + "file.txt";
+     * 
+     * System.out.println("Testing path on: " + System.getProperty("os.name"));
+     * // Bài test này sẽ CHỈ CHẠY ĐÚNG TRÊN WINDOWS
+     * // Trên Linux và macOS, nó sẽ báo lỗi vì chúng dùng dấu /
+     * assertEquals(expectedPath, actualPath,
+     * "Đường dẫn không tương thích hệ điều hành!");
+     * }
+     */
     @Test
     public void testFilePath() {
-        // Cố tình dùng dấu gạch chéo ngược của Windows (\)
-        String expectedPath = "data\\temp\\file.txt";
-        String actualPath = "data" + java.io.File.separator + "temp" + java.io.File.separator + "file.txt";
+        // Cách viết mới: Dùng java.nio.file.Path
+        // Nó sẽ tự động dùng \ trên Windows và / trên Linux/macOS
+        java.nio.file.Path path = java.nio.file.Paths.get("data", "temp", "file.txt");
+        String actualPath = path.toString();
 
-        System.out.println("Testing path on: " + System.getProperty("os.name"));
-        // Bài test này sẽ CHỈ CHẠY ĐÚNG TRÊN WINDOWS
-        // Trên Linux và macOS, nó sẽ báo lỗi vì chúng dùng dấu /
-        assertEquals(expectedPath, actualPath, "Đường dẫn không tương thích hệ điều hành!");
+        // Tạo chuỗi mong đợi một cách thông minh bằng File.separator
+        String expectedPath = "data" + java.io.File.separator + "temp" + java.io.File.separator + "file.txt";
+
+        System.out.println("Testing path on: " + System.getProperty("os.name") + " -> " + actualPath);
+        assertEquals(expectedPath, actualPath, "Đường dẫn phải tương thích với mọi hệ điều hành!");
     }
 
 }
