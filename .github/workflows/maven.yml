@@ -37,3 +37,14 @@ jobs:
       with:
         name: math-utils-build
         path: Bai03/target/*.jar
+    - name: Build and Verify with JaCoCo
+      # Thay 'package' bằng 'verify' để kích hoạt bước check coverage của JaCoCo
+      run: mvn -f Bai03/pom.xml clean verify 
+
+    - name: Upload JaCoCo Report
+      uses: actions/upload-artifact@v4
+      with:
+        name: jacoco-report
+        # Đường dẫn đến file báo cáo (dạng HTML)
+        path: Bai03/target/site/jacoco/
+
