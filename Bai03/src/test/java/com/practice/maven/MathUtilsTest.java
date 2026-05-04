@@ -12,7 +12,7 @@ public class MathUtilsTest {
         int result = math.add(2, 3);
 
         // So sành
-        assertEquals(2, result, "Phép cộng sai ");
+        assertEquals(5, result, "Phép cộng sai ");
     }
 
     // Bài kiểm tra bắt lỗi chia cho 0
