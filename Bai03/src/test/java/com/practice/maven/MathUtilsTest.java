@@ -9,10 +9,10 @@ public class MathUtilsTest {
     @Test
     public void testAdd() {
         MathUtils math = new MathUtils();
-        int result = math.add(10, 20);
+        int result = math.add(2, 3);
 
-        // So sánh
-        assertEquals(30, result, "Phép cộng sai ");
+        // So sành
+        assertEquals(2, result, "Phép cộng sai ");
     }
 
     // Bài kiểm tra bắt lỗi chia cho 0
