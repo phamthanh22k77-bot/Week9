@@ -26,4 +26,17 @@ public class MathUtilsTest {
         });
         assertEquals("Không thể chia cho 0", exception.getMessage());
     }
+
+    @Test
+    public void testFilePath() {
+        // Cố tình dùng dấu gạch chéo ngược của Windows (\)
+        String expectedPath = "data\\temp\\file.txt";
+        String actualPath = "data" + java.io.File.separator + "temp" + java.io.File.separator + "file.txt";
+
+        System.out.println("Testing path on: " + System.getProperty("os.name"));
+        // Bài test này sẽ CHỈ CHẠY ĐÚNG TRÊN WINDOWS
+        // Trên Linux và macOS, nó sẽ báo lỗi vì chúng dùng dấu /
+        assertEquals(expectedPath, actualPath, "Đường dẫn không tương thích hệ điều hành!");
+    }
+
 }
