@@ -1,0 +1,31 @@
+name: Java CI with Maven
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up JDK 17
+      uses: actions/setup-java@v3
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        cache: 'maven'
+
+    - name: Build and Test Bai03
+      # Chúng ta chỉ yêu cầu CI chạy cho Bài 3
+      run: mvn -f Bai03/pom.xml clean package 
+
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: math-utils-build
+        path: Bai03/target/*.jar
