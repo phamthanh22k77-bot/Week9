@@ -3,7 +3,7 @@ name: Java CI with Maven
 on:
   push:
     branches: [ "main", "master" ]
-  pull_request:
+  pull_request: #trigger khi có pull request
     branches: [ "main", "master" ]
 
 jobs:
@@ -49,12 +49,13 @@ jobs:
         path: Bai03/target/site/jacoco/
     # Bai07 Inline Feedback (Sử dụng Reviewdog cực kỳ ổn định)
     - name: Checkstyle Review
-      if: always() && github.event_name == 'pull_request'
+      if: always() && github.event_name == 'pull_request' # Chỉ chạy khi là PR
       uses: reviewdog/action-checkstyle@v1
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        reporter: github-pr-review # Đăng comment trực tiếp vào PR
+        reporter: github-pr-review # Ép Bot phải viết comment vào PR
         level: error
-        checkstyle_config: google_checks.xml # Sử dụng chuẩn Google
+        checkstyle_config: google_checks.xml
+
 
 
