@@ -47,14 +47,11 @@ jobs:
         name: jacoco-report
         # Đường dẫn đến file báo cáo (dạng HTML)
         path: Bai03/target/site/jacoco/
-    #Bai07 Inline Feedback
+    # Bai07 Inline Feedback
     - name: Checkstyle Review
-      # Chỉ chạy bước này khi có sự kiện Pull Request
       if: always() && github.event_name == 'pull_request'
-      uses: dbelyaev/action-checkstyle@master
+      uses: dbelyaev/action-checkstyle@v0.5.0
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        # Đường dẫn tới file kết quả mà Maven tạo ra
-        checkstyle_config: Bai03/target/checkstyle-result.xml
         level: error
 
