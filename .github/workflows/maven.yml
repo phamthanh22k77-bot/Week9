@@ -50,7 +50,7 @@ jobs:
     #Bai07 Inline Feedback
     - name: Checkstyle Review
       # Chỉ chạy bước này khi có sự kiện Pull Request
-      if: github.event_name == 'pull_request'
+      if: always() && github.event_name == 'pull_request'
       uses: dbelyaev/action-checkstyle@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
