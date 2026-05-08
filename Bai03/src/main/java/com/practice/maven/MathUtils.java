@@ -10,7 +10,7 @@ public class MathUtils {
     // Hàm cộng hai số
     public int add(int a, int b) {
         logger.info("Đang tính cộng: {} + {}", a, b);
-                    return a + b;
+                return a + b;
     }
 
     // Hàm chia hai số (có bắt lỗi chia cho 0)
