@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class MathUtilsTest {
 
-    // Một bài kiểm tra
+    // Test 1
     @Test
     public void testAdd() {
         MathUtils math = new MathUtils();
