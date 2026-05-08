@@ -28,7 +28,7 @@ public class Customer {
     }
 
     /**
-     * Lấy thông tin khách hàng và danh sách tài khoản.
+     * Lấy thông tin khách hàng và danh sách tài khoản...
      */
     public String getCustomerInfo() {
         return "Số CMND: " + idNumber + ". Họ tên: " + fullName + ". Số lượng tài khoản: " + accounts.size();
