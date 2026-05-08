@@ -4,16 +4,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class MathUtils {
-    // Khởi tạo Logger (Công cụ ghi log)
+
     private static final Logger logger = LoggerFactory.getLogger(MathUtils.class);
 
-    // Hàm cộng hai số
+
     public int add(int a, int b) {
         logger.info("Đang tính cộng: {} + {}", a, b);
-                return a + b;
+            return a + b;
     }
 
-    // Hàm chia hai số (có bắt lỗi chia cho 0)
+
     public double divide(int a, int b) {
         if (b == 0) {
             logger.error("Lỗi: Không được chia cho số 0!");
@@ -32,7 +32,7 @@ public class MathUtils {
         try {
             math.divide(10, 0);
         } catch (Exception e) {
-            // Lỗi đã được logger.error ghi lại bên trong hàm divide
+
         }
     }
 }
