@@ -27,11 +27,19 @@ public abstract class Account {
 
     public abstract void withdraw(double amount);
 
-    protected void doDepositing(double amount) {
+    protected void doDepositing(double amount) throws BankException {
+        if (amount < 0) {
+            throw new BankException("Số tiền gửi phải lớn hơn 0");
+        }
         this.balance += amount;
     }
 
-    protected void doWithdrawing(double amount) {
+    protected void doWithdrawing(double amount) throws BankException {
+        if (amount < 0) {
+            throw new BankException("Số tiền rút phải lớn hơn 0");
+        } else if (amount > balance) {
+            throw new BankException("Số dư không đủ");
+        }
         this.balance -= amount;
     }
 
