@@ -3,7 +3,7 @@ name: Java CI with Maven
 on:
   push:
     branches: [ "main", "master" ]
-  pull_request: #trigger khi có pull request
+  pull_request: #trigger khi có pull requestt
     branches: [ "main", "master" ]
 
 jobs:
