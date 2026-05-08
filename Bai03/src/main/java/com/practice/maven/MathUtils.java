@@ -7,7 +7,7 @@ public class MathUtils {
 
     private static final Logger logger = LoggerFactory.getLogger(MathUtils.class);
 
-    // Hàm cộng hai số
+
     public int add(int a, int b) {
         logger.info("Đang tính cộng: {} + {}", a, b);
                 return a + b;
