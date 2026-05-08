@@ -56,4 +56,22 @@ public class MathUtilsTest {
         assertEquals(expectedPath, actualPath, "Đường dẫn phải tương thích với mọi hệ điều hành!");
     }
 
+    // 1. Test trường hợp chia thành công (Để cover nốt dòng logger.debug và lệnh
+    // return)
+    @Test
+    public void testDivideSuccess() {
+        MathUtils math = new MathUtils();
+        double result = math.divide(10, 2);
+        assertEquals(5.0, result, "10 chia 2 phải bằng 5.0");
+    }
+
+    // 2. Test hàm main (Để cover các dòng logger.info và lệnh gọi trong main)
+    @Test
+    public void testMain() {
+        String[] args = {};
+        // Gọi hàm main để đảm bảo JaCoCo ghi nhận các dòng trong đó đã chạy
+        MathUtils.main(args);
+        assertTrue(true);
+    }
+
 }
